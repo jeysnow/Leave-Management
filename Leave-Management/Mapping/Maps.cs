@@ -10,6 +10,7 @@ namespace Leave_Management.Mapping
 {
     public class Maps: Profile
     {
+        //minor test
         public Maps()
         {
             //definir o tipo de modelo de dados e qual o VM relacionado
