@@ -126,13 +126,16 @@ namespace Leave_Management.Controllers
                 return NotFound();
 
             var leavetype = _repo.FindById(id);
-            //_mapper.map converts leavetype into leavetypeVM
-            var model = _Mapper.Map<LeaveTypeVM>(leavetype);
-            return View(model);
-            
-        }
+            var isScuccess = _repo.Delete(leavetype);
+            if (!isScuccess)
+                return BadRequest();
 
+            return RedirectToAction(nameof(Index));
+
+        }
+        //this is not used!!!!
         // POST: LEaveTypesController1/Delete/5
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, LeaveTypeVM model)
@@ -158,5 +161,6 @@ namespace Leave_Management.Controllers
                 return View();
             }
         }
+        */
     }
 }
