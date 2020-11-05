@@ -1,5 +1,6 @@
 ﻿using Leave_Management.Contracts;
 using Leave_Management.Data;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,13 @@ namespace Leave_Management.Repository
         public ICollection<LeaveType> GetEmployeesByLeaveType(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool IsExists(int id)
+        {
+            //lambda expression: left side is a temporary variable to store the preceding object, on the right we manipulate this objetcs properties, methods, etc.
+            var exists = _db.leaveTypes.Any(q => q.LeaveTypeId == id);
+            return exists;
         }
 
         public bool Save()

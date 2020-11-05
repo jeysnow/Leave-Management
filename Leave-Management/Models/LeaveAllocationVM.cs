@@ -21,7 +21,7 @@ namespace Leave_Management.Models
         public int LeaveTypeId { get; set; }
 
         
-        public DetailsLeaveTypeVM LeaveType { get; set; }
+        public LeaveTypeVM LeaveType { get; set; }
 
         
         public EmployeeVM Employee { get; set; }

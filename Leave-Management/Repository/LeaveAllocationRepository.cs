@@ -38,6 +38,13 @@ namespace Leave_Management.Repository
             return _db.leaveAllocations.Find(id);
         }
 
+        public bool IsExists(int id)
+        {
+            //lambda expression: left side is a temporary variable to store the preceding object, on the right we manipulate this objetcs properties, methods, etc.
+            var exists = _db.leaveAllocations.Any(q => q.LeaveTypeId == id);
+            return exists;
+        }
+
         public bool Save()
         {
             return _db.SaveChanges() > 0;
